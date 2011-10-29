@@ -9,8 +9,8 @@ CREATE TABLE `opiekunowie` (
   `haslo` VARCHAR(32) NOT NULL,
   `nazwisko` VARCHAR(24) NOT NULL,
   `imie` VARCHAR(24) NOT NULL,
-  `email` VARCHAR(24) NOT NULL,
-  `telefon` VARCHAR(24) NOT NULL,
+  `email` VARCHAR(24),
+  `telefon` VARCHAR(24),
   PRIMARY KEY (`id`),
   UNIQUE KEY `opiekunowie_login` (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -21,8 +21,8 @@ CREATE TABLE `nauczyciele` (
   `haslo` VARCHAR(32) NOT NULL,
   `nazwisko` VARCHAR(24) NOT NULL,
   `imie` VARCHAR(24) NOT NULL,
-  `email` VARCHAR(24) NOT NULL,
-  `telefon` VARCHAR(24) NOT NULL,
+  `email` VARCHAR(24),
+  `telefon` VARCHAR(24),
   PRIMARY KEY (`id`),
   UNIQUE KEY `nauczyciele_login` (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -30,8 +30,8 @@ CREATE TABLE `nauczyciele` (
 CREATE TABLE `uczniowie` (
   `id` INT UNSIGNED AUTO_INCREMENT NOT NULL,
   `nazwisko` VARCHAR(24) NOT NULL,
-  `data_ur` DATETIME NOT NULL,
-  `did_info` TINYTEXT,
+  `data_ur` DATE NOT NULL,
+  `dod_info` TINYTEXT,
   `id_klasy` INT UNSIGNED,
   `id_opiekuna` INT UNSIGNED,
   PRIMARY KEY (`id`)
