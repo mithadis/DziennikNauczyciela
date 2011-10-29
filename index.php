@@ -1,11 +1,9 @@
 <?php
 
-$file = file("./tls/index.html");
+include 'inc/Template.php';
 
-echo $file;
+$tl = new Template('tls/index.html');
 
-$site = implode("\n", $file);
-echo $site;
-
+echo $tl->execute();
 
 ?>

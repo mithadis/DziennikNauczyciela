@@ -1,7 +1,11 @@
 <?php
 
-echo $_POST['login'];
-echo $_POST['password'];
+$login = $_POST['login'];
+$pass = $_POST['password'];
+
+
+//$_SESSION['parentId']
+//$_SESSION['teacherId']
 
 
 ?>
