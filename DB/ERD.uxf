@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <zoom_level>6</zoom_level>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>162</x>
+      <y>192</y>
+      <w>108</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>KLASY
+--
+rok: TINYINT
+grupa: CHAR(1)
+id_wychowawcy: INT
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>162</x>
+      <y>54</y>
+      <w>108</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>NAUCZYCIELE
+--
+login: VARCHAR(24)
+haslo: VARCHAR(32)
+nazwisko: VARCHAR(24)
+imie: VARCHAR(24)
+e-mail: VARCHAR(24)
+telefon: VARCHAR(16)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>426</x>
+      <y>186</y>
+      <w>108</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>UCZNIOWIE
+--
+nazwisko: VARCHAR(24)
+imie: VARCHAR(24)
+data_ur: DATETIME
+id_klasy: INT
+id_opiekuna: INT
+dod_info: TEXT</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>252</x>
+      <y>204</y>
+      <w>186</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>18;18;174;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>198</x>
+      <y>120</y>
+      <w>30</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>18;18;18;72</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>228</x>
+      <y>462</y>
+      <w>102</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>TERMINY
+--
+dzien_tyg: TINYINT
+id_godziny: INT
+id_kursu: INT
+miejsce: VARCHAR(16)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>12</x>
+      <y>192</y>
+      <w>96</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>ZASTEPSTWA
+--
+id_klasy: INT
+id_nauczyciela: INT
+data: DATE
+id_godziny: INT</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>426</x>
+      <y>312</y>
+      <w>102</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>OCENY
+--
+id_ucznia: INT
+id_kursu: INT
+ocena: TINYINT
+waga: TINYINT
+tytul: VARCHAR(32)
+timestamp: TIMESTAMP</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>594</x>
+      <y>186</y>
+      <w>84</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>OBECNOSCI
+--
+id_ucznia: INT
+data: DATE
+id_godziny: INT
+status: ENUM
+uspr: BOOL</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>360</x>
+      <y>60</y>
+      <w>102</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>UWAGI
+--
+id_ucznia: INT
+id_nauczuciela: INT
+tytuł: ENUM
+komentarz: TEXT
+timestamp: TIMESTAMP
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>168</x>
+      <y>312</y>
+      <w>96</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>KURSY
+--
+id_klasy: INT
+id_nauczyciela: INT
+id_przedmiotu: INT
+obowiazkowy: BOOL</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>198</x>
+      <y>228</y>
+      <w>30</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>18;18;18;84</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>42</x>
+      <y>78</y>
+      <w>132</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>120;18;18;18;18;114</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>90</x>
+      <y>204</y>
+      <w>84</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>72;18;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>246</x>
+      <y>102</y>
+      <w>66</w>
+      <h>246</h>
+    </coordinates>
+    <panel_attributes>
+m1=0..*
+m2=1</panel_attributes>
+    <additional_attributes>18;234;54;234;54;18;24;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>228</x>
+      <y>360</y>
+      <w>30</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>18;18;18;102</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>462</x>
+      <y>252</y>
+      <w>30</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>18;18;18;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>246</x>
+      <y>342</y>
+      <w>192</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>18;18;180;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>516</x>
+      <y>204</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>18;18;78;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>426</x>
+      <y>114</y>
+      <w>30</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>18;72;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>252</x>
+      <y>78</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>18;18;108;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>438</x>
+      <y>468</y>
+      <w>96</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>GODZINY
+--
+godzina: TINYINT
+od: TIME
+do: TIME</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>312</x>
+      <y>480</y>
+      <w>138</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>126;18;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>516</x>
+      <y>240</y>
+      <w>132</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>18;258;120;258;120;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>36</x>
+      <y>240</y>
+      <w>462</w>
+      <h>336</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>450;282;450;324;18;324;24;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>570</x>
+      <y>60</y>
+      <w>108</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>OPIEKUNOWIE
+--
+login: VARCHAR(24)
+haslo: VARCHAR(32)
+nazwisko: VARCHAR(24)
+imie: VARCHAR(24)
+e-mail: VARCHAR(24)
+telefon: VARCHAR(16)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>498</x>
+      <y>72</y>
+      <w>84</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>m1=1..n
+m2=1</panel_attributes>
+    <additional_attributes>18;114;18;18;72;18</additional_attributes>
+  </element>
+</diagram>
