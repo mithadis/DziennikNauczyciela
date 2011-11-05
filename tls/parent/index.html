@@ -2,21 +2,56 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="http://localhost:8080/DziennikNauczyciela/scripts/jquery-1.7.js"></script>
 <title>Witaj Rodzicu</title>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){ 
+	var id = $('#childrenChoice option:selected').val();	
+	$('#childId').attr('value', id);
+	
+	$('a[href*=\'attendance.php\']').click(function(){
+		var id = $('#childrenChoice option:selected').val();	
+		$('#childId').attr('value', id);
+		$('#menuForm').attr('action', '/DziennikNauczyciela/parent/attendance.php');
+		$('#menuForm').submit();
+		return false;
+	});
+
+});
+
+</script>
+
 </head>
 <body>
 
+<div id="leftContainer">
+
 <div id="chooseChild">
-{childrenCombobox}
+${childrenCombobox}
 </div>
 
 
 <div id="menu">
+<form id="menuForm" style="display: none;" method="post">
+<input id="childId" name="childId">
+</form>
 
 <ul id="menuChoice">
-<li><a href="attendance.php">Obecności</a></li>
-<li><a href="marks.php">Oceny</a></li>
+
+<li><a href="/DziennikNauczyciela/parent/attendance.php">Obecności</a></li>
+<li><a href="/DziennikNauczyciela/parent/marks.php">Oceny</a></li>
 </ul>
+</div>
+
+</div>
+
+<div id="mainContainer">
+
+${content}
+
 </div>
 
 </body>

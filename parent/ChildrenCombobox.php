@@ -1,22 +1,25 @@
 <?php
 
+include '../inc/conf.php';
+
+session_start();
+
 function getChildrenCombobox($parentId) {
 
-// $db = mysql_connect('localhost', 'root', 'root');
+$parentId = $_SESSION['parentId'];
 
-// if(!$db){
-// 	echo 'nie da rady';
-// }
+mysql_connect(DB_SERVER, DB_LOGIN, DB_PASS);
 
-// $result = mysql_query('USE dn') or die('koniec use');
+mysql_query('USE dn') or die('koniec use');
 
-// $result = mysql_query('select * from uczniowie') or die('koniec select');
+$result = mysql_query('SELECT id, imie FROM uczniowie WHERE id_opiekuna = ' . $parentId) or die('koniec select');
 
-// $row = mysql_fetch_row($result);
+$markup = '<select id="childrenChoice">';
+while(($row = mysql_fetch_row($result)) != ''){
+	$markup .= '<option value="' . $row[0] . '">' . $row[1] . '</option>';
+}
+$markup .= '</select>';
 
-// $value = print_r($row);
-
-return $value;
-
+return $markup;
 }
 ?>

@@ -20,7 +20,7 @@ class Template{
 	}
 	
 	function execute() {
-		return preg_replace('/{([^}]+)}/e', '$this->data["\\1"]', $this->tmpl);
+		return preg_replace('/\\${([^}]+)}/e', '$this->data["\\1"]', $this->tmpl);
 	}
 	
 	

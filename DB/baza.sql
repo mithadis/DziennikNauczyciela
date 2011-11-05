@@ -9,7 +9,7 @@ CREATE TABLE `opiekunowie` (
   `haslo` VARCHAR(32) NOT NULL,
   `nazwisko` VARCHAR(24) NOT NULL,
   `imie` VARCHAR(24) NOT NULL,
-  `email` VARCHAR(24),
+  `email` VARCHAR(100),
   `telefon` VARCHAR(24),
   PRIMARY KEY (`id`),
   UNIQUE KEY `opiekunowie_login` (`login`)
@@ -21,7 +21,7 @@ CREATE TABLE `nauczyciele` (
   `haslo` VARCHAR(32) NOT NULL,
   `nazwisko` VARCHAR(24) NOT NULL,
   `imie` VARCHAR(24) NOT NULL,
-  `email` VARCHAR(24),
+  `email` VARCHAR(100),
   `telefon` VARCHAR(24),
   PRIMARY KEY (`id`),
   UNIQUE KEY `nauczyciele_login` (`login`)
@@ -30,6 +30,7 @@ CREATE TABLE `nauczyciele` (
 CREATE TABLE `uczniowie` (
   `id` INT UNSIGNED AUTO_INCREMENT NOT NULL,
   `nazwisko` VARCHAR(24) NOT NULL,
+  imie VARCHAR(24) NOT NULL,
   `data_ur` DATE NOT NULL,
   `dod_info` TINYTEXT,
   `id_klasy` INT UNSIGNED,
@@ -39,8 +40,8 @@ CREATE TABLE `uczniowie` (
 
 CREATE TABLE `uwagi` (
   `id` INT UNSIGNED AUTO_INCREMENT NOT NULL,
-  `tytul` ENUM('pochwa³a', 'nagana', 'inne') NOT NULL,
-  `komentarz` TINYTEXT NOT NULL,
+  `tytul` ENUM('pochwala', 'nagana', 'inne') NOT NULL,
+  `komentarz` VARCHAR(100) NOT NULL,
   `timestamp` TIMESTAMP NOT NULL,
   `id_nauczyciela` INT UNSIGNED,
   `id_ucznia` INT UNSIGNED NOT NULL,
@@ -57,7 +58,7 @@ CREATE TABLE `klasy` (
 
 CREATE TABLE `obecnosci` (
   `id` INT UNSIGNED AUTO_INCREMENT NOT NULL,
-  `status` ENUM('obecny', 'spóniony', 'nieobecny') NOT NULL,
+  `status` ENUM('obecny', 'spozniony', 'nieobecny') NOT NULL,
   `uspr` BOOL NOT NULL,
   `data` DATE NOT NULL,
   `id_godziny` INT UNSIGNED NOT NULL,
