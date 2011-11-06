@@ -2,19 +2,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/DziennikNauczyciela/css/signupStyle.css">
 <title>Dziennik szkolny</title>
 </head>
 <body>
 
-<div id="logForm">
-
+<div id="loginForm">
+<div id="loginHeader">Logowanie do Dziennika Szkolnego</div>
 <form action="login.php" method="POST">
 
-<input name="login" type="text">
+<label class="signinLabel">Login: </label><input class="signinInput" name="login" type="text">
 
-<input name="password" type="password">
+<label class="signinLabel">Hasło: </label><input class="signinInput" name="password" type="password">
 
-<input type="submit" value="Log in">
+<input id="signin" type="submit" value="Zaloguj">
 
 </form>
 

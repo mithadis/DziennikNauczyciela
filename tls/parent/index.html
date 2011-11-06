@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/DziennikNauczyciela/css/style.css">
 <script type="text/javascript" src="http://localhost:8080/DziennikNauczyciela/scripts/jquery-1.7.js"></script>
 <title>Witaj Rodzicu</title>
 
@@ -12,10 +13,10 @@ $(document).ready(function(){
 	var id = $('#childrenChoice option:selected').val();	
 	$('#childId').attr('value', id);
 	
-	$('a[href*=\'attendance.php\']').click(function(){
+	$('a[name="menuLink"]').click(function(){
 		var id = $('#childrenChoice option:selected').val();	
 		$('#childId').attr('value', id);
-		$('#menuForm').attr('action', '/DziennikNauczyciela/parent/attendance.php');
+		$('#menuForm').attr('action', this);
 		$('#menuForm').submit();
 		return false;
 	});
@@ -27,22 +28,26 @@ $(document).ready(function(){
 </head>
 <body>
 
+<div id="topContainer">
+</div>
+
 <div id="leftContainer">
+
+<div id="menu">
 
 <div id="chooseChild">
 ${childrenCombobox}
 </div>
 
 
-<div id="menu">
 <form id="menuForm" style="display: none;" method="post">
 <input id="childId" name="childId">
 </form>
 
 <ul id="menuChoice">
 
-<li><a href="/DziennikNauczyciela/parent/attendance.php">Obecności</a></li>
-<li><a href="/DziennikNauczyciela/parent/marks.php">Oceny</a></li>
+<li><a name="menuLink" href="/DziennikNauczyciela/parent/attendance.php">Obecności</a></li>
+<li><a name="menuLink" href="/DziennikNauczyciela/parent/marks.php">Oceny</a></li>
 </ul>
 </div>
 

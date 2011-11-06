@@ -1,40 +1,43 @@
 <?php
 
 include '../inc/conf.php';
+include '../inc/table.php';
+include '../inc/Template.php';
+include 'ChildrenCombobox.php';
+
+session_start();
 
 $childId = $_POST['childId'];
+$parentId = $_SESSION['parentId'];
+$_SESSION['childId'] = $childId;
 
-mysql_connect(DB_SERVER, DB_LOGIN, DB_PASS) or die('connect');
-mysql_query('USE dn') or die('use');
- 
-$result = mysql_query('SELECT status, uspr, data, id_godziny FROM obecnosci WHERE id_ucznia = ' . $childId) or die ('select');
+$combo = getChildrenCombobox($parentId, $childId);
+$table = getAttendanceTable($childId);
 
 
-$table = '<table>';
-$i = 1;
-while(($row = mysql_fetch_array($result)) != ''){
-	
-	$table .= '<tr class="'.oddEven($i).'">';
-	for($j = 0; $j < sizeof($row); $j++){
-		$table .= '<td>';
-		$table .= $row[$j];
-		$table .= '</td>';
-	}
-	$table .= '</tr>';
+$tl = new Template('../tls/parent/index.html');
+
+$tl->add('childrenCombobox', $combo);
+$tl->add('content', $table);
+
+echo $tl->execute();
+
+
+function getAttendanceTable($childId){
+
+	mysql_connect(DB_SERVER, DB_LOGIN, DB_PASS) or die('connect');
+	mysql_query('USE dn') or die('use');
+
+	$q = 'SELECT  @rownum := @rownum + 1 AS \'L.p.\', data AS Data, g.od As Od, g.do AS Do, status AS Status, ';
+	$q.= ' CASE uspr WHEN 1 THEN \'TAK\' WHEN 0 THEN \'NIE\' END AS \'Czy usprawiedliowione?\' ';
+	$q.= ' FROM obecnosci o JOIN godziny g ON o.id_godziny = g.id, (SELECT @rownum := 0 ) r ';
+	$q.= ' WHERE id_ucznia = ' . $childId . ' ORDER BY data';
+
+	$result = mysql_query($q) or die ('select');
+
+	$table = table($result);
+
+	return $table;
 }
-$table .= '</table>';
-
-echo $table;
-
-
-
-function oddEven(&$i){
-		if($i%2){
-			return "odd";
-		}else{
-			return "even";
-		}
-		$i++;
-	}
 
 ?>

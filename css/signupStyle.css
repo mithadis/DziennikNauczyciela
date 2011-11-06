@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+
+body{
+	font-family: "Trebuchet MS";
+}
+
+#loginForm{
+	
+	display: inline-block;
+	clear: both;
+	background-color: #B00000;
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-top: 15%;
+	
+}
+
+#loginHeader{
+	position: relative;
+	clear: both;
+	background-color: #600000;
+	font-size: large;
+	color: white;
+	padding: 1.5em 1.5em 1.5em 1.5em;  
+}
+
+.signinLabel{
+	float:left;
+	clear: left;
+	color: white;
+	padding-top: 1.5em;
+	margin-left: 20%;
+	margin-right: 5%
+}
+
+.signinInput{
+	float: left;
+	clear: right;
+	margin-top: 1.5em;
+	margin-right: 10%;
+}
+
+
+#signin{
+	float:right;
+	clear:both;
+}
+
+
