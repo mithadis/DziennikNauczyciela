@@ -7,14 +7,15 @@ include 'ChildrenCombobox.php';
 
 session_start();
 
-$childId = $_POST['childId'];
+$childId = $_GET['childId'];
 $parentId = $_SESSION['parentId'];
 $_SESSION['childId'] = $childId;
 
 
-$q = 'SELECT @rownum := @rownum + 1 AS \'L.p.\', k.przedmiot AS Przedmiot, ocena AS Ocena, timestamp AS Data, CONCAT(n.nazwisko, \' \', n.imie) as Nauczyciel FROM ';
-$q.= ' oceny o JOIN kursy k ON o.id_kursu = k.id JOIN nauczyciele n ON k.id_nauczyciela = n.id , (SELECT @rownum := 0 ) r';
-$q.= ' WHERE o.id_ucznia = ' . $childId . ' ORDER BY k.przedmiot';
+$q = 'SELECT @rownum := @rownum + 1 AS \'L.p.\', T1.* FROM (SELECT k.przedmiot AS Przedmiot, ocena AS Ocena, timestamp AS Data, CONCAT(n.nazwisko, \' \', n.imie) as Nauczyciel FROM ';
+$q.= ' oceny o JOIN kursy k ON o.id_kursu = k.id JOIN nauczyciele n ON k.id_nauczyciela = n.id  WHERE o.id_ucznia = ';
+$q.= $childId;
+$q.= ' ORDER BY k.przedmiot) T1, (SELECT @rownum := 0 ) r';
 
 mysql_connect(DB_SERVER, DB_LOGIN, DB_PASS);
 mysql_query('USE dn') or die('use');

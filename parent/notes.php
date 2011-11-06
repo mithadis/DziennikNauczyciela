@@ -7,7 +7,7 @@ include 'ChildrenCombobox.php';
 
 session_start();
 
-$childId = $_POST['childId'];
+$childId = $_GET['childId'];
 $parentId = $_SESSION['parentId'];
 $_SESSION['childId'] = $childId;
 
@@ -26,11 +26,11 @@ echo $tl->execute();
 
 function getNotes($childId){
 	
-	$q = 'SELECT @rownum := @rownum + 1 AS \'L.p.\', u.tytul AS \'Tytu³\', u.komentarz AS Komentarz, ';
+	$q = 'SELECT @rownum := @rownum + 1 AS \'L.p.\', T1.* FROM ( SELECT u.tytul AS \'Tytu³\', u.komentarz AS Komentarz, ';
 	$q.= ' u.timestamp AS Data, CONCAT(n.nazwisko, \' \', n.imie) AS Nauczyciel ';
-	$q.= ' FROM uwagi u JOIN nauczyciele n ON u.id_nauczyciela = n.id, ';
-	$q.= ' (SELECT @rownum := 0) r WHERE u.id_ucznia = ' . $childId;
-	$q.= ' ORDER BY u.timestamp';
+	$q.= ' FROM uwagi u JOIN nauczyciele n ON u.id_nauczyciela = n.id ';
+	$q.= ' WHERE u.id_ucznia = ' . $childId;
+	$q.= ' ORDER BY u.timestamp ) T1, (SELECT @rownum := 0) r ';
 	
 	mysql_connect(DB_SERVER, DB_LOGIN, DB_PASS) or die('connect');
 	mysql_query('USE dn') or die('use');

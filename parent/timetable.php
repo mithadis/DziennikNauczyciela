@@ -7,7 +7,7 @@ include 'ChildrenCombobox.php';
 
 session_start();
 
-$childId = $_POST['childId'];
+$childId = $_GET['childId'];
 $parentId = $_SESSION['parentId'];
 $_SESSION['childId'] = $childId;
 

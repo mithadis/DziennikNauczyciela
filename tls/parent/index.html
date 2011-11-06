@@ -16,7 +16,7 @@ $(document).ready(function(){
 	$('a[name="menuLink"]').click(function(){
 		var id = $('#childrenChoice option:selected').val();	
 		$('#childId').attr('value', id);
-		$('#menuForm').attr('action', this);
+		$('#menuForm').attr('action', this + '?childId=' + id);
 		$('#menuForm').submit();
 		return false;
 	});
@@ -40,7 +40,7 @@ ${childrenCombobox}
 </div>
 
 
-<form id="menuForm" style="display: none;" method="post">
+<form id="menuForm" style="display: none;" method="GET">
 <input id="childId" name="childId">
 </form>
 
@@ -50,6 +50,7 @@ ${childrenCombobox}
 <li><a name="menuLink" href="/DziennikNauczyciela/parent/marks.php">Oceny</a></li>
 <li><a name="menuLink" href="/DziennikNauczyciela/parent/timetable.php">Plan lekcji</a></li>
 <li><a name="menuLink" href="/DziennikNauczyciela/parent/notes.php">Pochwały i uwagi</a></li>
+<li><a name="menuLink" href="/DziennikNauczyciela/parent/contact.php">Kontakt do nauczycieli</a></li>
 </ul>
 </div>
 
