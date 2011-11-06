@@ -4,10 +4,10 @@ include 'inc/conf.php';
 
 function checkCredentials($login, $password, $roleTableName){
 	
-	mysql_connect(DB_SERVER, DB_LOGIN, DB_PASS);
-	mysql_query('USE dn');
+	mysql_connect(DB_SERVER, DB_LOGIN, DB_PASS) or die('koniec connect');
+	mysql_query('USE dn') or die('koniec use');
 	
-	$result = mysql_query('SELECT id FROM '. $roleTableName . ' WHERE login = \'' . $login . '\' AND haslo = \'' . $password .'\'');
+	$result = mysql_query('SELECT id FROM '. $roleTableName . ' WHERE login = \'' . $login . '\' AND haslo = \'' . $password .'\'') or die('koniec select');
 
 	$row = mysql_fetch_row($result);
 	mysql_close();
@@ -28,8 +28,8 @@ if($id != ""){
 	include '/parent/logged.php';
 	
 }else{
-
-	$id = checkCredentials($login, $password, 'nauczyciele');
+	
+	$id = checkCredentials($login, $pass, 'nauczyciele');
 	
 	if($id != ""){
 		session_start();

@@ -1882,3 +1882,7 @@ UPDATE opiekunowie SET login = 'r1'WHERE id = 3;
 UPDATE opiekunowie SET haslo = 'a' WHERE id = 3;
 UPDATE opiekunowie SET login = 'r2'WHERE id = 5; 
 UPDATE opiekunowie SET haslo = 'a' WHERE id = 5;
+UPDATE nauczyciele SET login = 'w1' WHERE id = 26;
+UPDATE nauczyciele SET haslo = 'a' WHERE id = 26;
+UPDATE nauczyciele SET login = 'n1' WHERE id = 10;
+UPDATE nauczyciele SET haslo = 'a' WHERE id = 10;
