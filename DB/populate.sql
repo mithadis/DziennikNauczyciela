@@ -1887,3 +1887,7 @@ UPDATE nauczyciele SET haslo = 'a' WHERE id = 26;
 UPDATE nauczyciele SET login = 'n1' WHERE id = 10;
 UPDATE nauczyciele SET haslo = 'a' WHERE id = 10;
 UPDATE kursy SET id_nauczyciela = 13 WHERE id = 33;
+
+update obecnosci set id_ucznia = 45 where id = 7;
+update obecnosci set id_ucznia = 45 where id = 8;
+update obecnosci set id_ucznia = 45 where id = 9;
