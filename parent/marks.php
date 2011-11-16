@@ -1,6 +1,6 @@
 <?php
 
-include '../inc/conf.php';
+require_once '../inc/conf.php';
 include '../inc/table.php';
 include '../inc/Template.php';
 include 'ChildrenCombobox.php';
@@ -16,9 +16,6 @@ $q = 'SELECT @rownum := @rownum + 1 AS \'L.p.\', T1.* FROM (SELECT k.przedmiot A
 $q.= ' oceny o JOIN kursy k ON o.id_kursu = k.id JOIN nauczyciele n ON k.id_nauczyciela = n.id  WHERE o.id_ucznia = ';
 $q.= $childId;
 $q.= ' ORDER BY k.przedmiot) T1, (SELECT @rownum := 0 ) r';
-
-mysql_connect(DB_SERVER, DB_LOGIN, DB_PASS);
-mysql_query('USE dn') or die('use');
 
 $result = mysql_query($q) or die('koniec select; marks.php');
 

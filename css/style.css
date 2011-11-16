@@ -11,6 +11,18 @@ body{
 	
 }
 
+#topMenu{
+	
+	float: right;
+	
+}
+
+#topMenu label,
+#topMenu input,
+#topMenu select,
+{
+	float: right;
+}
 
 #mainContainer{
 	margin: 0% 1% 1% 1%;
@@ -68,7 +80,7 @@ thead td{
 	background-color: #880000;
 
 }
-#chooseChild{
+#combobox{
 	
 	padding-top: 1.5em;
 	padding-left: 1.5em;

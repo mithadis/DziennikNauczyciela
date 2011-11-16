@@ -10,15 +10,14 @@
 <script type="text/javascript">
 
 $(document).ready(function(){ 
-	var id = $('#childrenChoice option:selected').val();	
-	$('#childId').attr('value', id);
+	var id = $('#classChoice option:selected').val();	
+	$('#classId').attr('value', id);
 	
-	$('a[name="menuLink"]').click(function(){
-		var id = $('#childrenChoice option:selected').val();	
-		$('#childId').attr('value', id);
-		$('#menuForm').attr('action', this + '?childId=' + id);
+	$('#classChoice').change(function(){
+		var id = $('#classChoice option:selected').val();	
+		$('#classId').attr('value', id);
+		$('#menuForm').attr('action', '/DziennikNauczyciela/teacher/index.php?classId=' + id);
 		$('#menuForm').submit();
-		return false;
 	});
 
 });
@@ -29,6 +28,12 @@ $(document).ready(function(){
 <body>
 
 <div id="topContainer">
+
+
+<!-- <div id="topMenu"> -->
+<!-- <label>Dzień: </label>${day} -->
+<!-- <label>Godzina lekcyjna: </label>${period} -->
+<!-- </div> -->
 </div>
 
 <div id="leftContainer">
@@ -36,21 +41,16 @@ $(document).ready(function(){
 <div id="menu">
 
 <div id="combobox">
-${childrenCombobox}
+${classCombobox}
 </div>
 
 
 <form id="menuForm" style="display: none;" method="GET">
-<input id="childId" name="childId">
+<input id="classId" name="classId">
 </form>
 
 <ul id="menuChoice">
-
-<li><a name="menuLink" href="/DziennikNauczyciela/parent/attendance.php">Obecności</a></li>
-<li><a name="menuLink" href="/DziennikNauczyciela/parent/marks.php">Oceny</a></li>
-<li><a name="menuLink" href="/DziennikNauczyciela/parent/timetable.php">Plan lekcji</a></li>
-<li><a name="menuLink" href="/DziennikNauczyciela/parent/notes.php">Pochwały i uwagi</a></li>
-<li><a name="menuLink" href="/DziennikNauczyciela/parent/contact.php">Kontakt do nauczycieli</a></li>
+${subjectsList}
 </ul>
 </div>
 

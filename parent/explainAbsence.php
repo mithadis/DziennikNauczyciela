@@ -1,6 +1,6 @@
 <?php
 
-include '../inc/conf.php';
+require_once '../inc/conf.php';
 include '../inc/table.php';
 include '../inc/Template.php';
 include 'ChildrenCombobox.php';
@@ -11,9 +11,6 @@ session_start();
 $explainAbsence = $_POST['explainAbsence'];
 $childId = $_SESSION['childId'];
 $parentId = $_SESSION['parentId'];
-
-mysql_connect(DB_SERVER, DB_LOGIN, DB_PASS);
-mysql_query('USE dn');
 
 $q = 'SELECT CONCAT(nazwisko," ", imie) FROM uczniowie WHERE id = ' . $childId;
 $result = mysql_query($q);

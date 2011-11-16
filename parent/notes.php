@@ -1,6 +1,6 @@
 <?php
 
-include '../inc/conf.php';
+require_once '../inc/conf.php';
 include '../inc/table.php';
 include '../inc/Template.php';
 include 'ChildrenCombobox.php';
@@ -25,16 +25,13 @@ echo $tl->execute();
 
 
 function getNotes($childId){
-	
+	initDB();
 	$q = 'SELECT @rownum := @rownum + 1 AS \'L.p.\', T1.* FROM ( SELECT u.tytul AS \'Tytu³\', u.komentarz AS Komentarz, ';
 	$q.= ' u.timestamp AS Data, CONCAT(n.nazwisko, \' \', n.imie) AS Nauczyciel ';
 	$q.= ' FROM uwagi u JOIN nauczyciele n ON u.id_nauczyciela = n.id ';
 	$q.= ' WHERE u.id_ucznia = ' . $childId;
 	$q.= ' ORDER BY u.timestamp ) T1, (SELECT @rownum := 0) r ';
 	
-	mysql_connect(DB_SERVER, DB_LOGIN, DB_PASS) or die('connect');
-	mysql_query('USE dn') or die('use');
-
 	$result = mysql_query($q) or die ('select');
 	
 	$table = table($result);

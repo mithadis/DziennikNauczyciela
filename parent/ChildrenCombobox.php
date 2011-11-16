@@ -1,6 +1,6 @@
 <?php
 
-include '../inc/conf.php';
+require_once '../inc/conf.php';
 
 session_start();
 
@@ -9,10 +9,7 @@ function getChildrenCombobox($parentId, $childId = '') {
 $parentId = $_SESSION['parentId'];
 $childId = $_SESSION['childId'];
 
-mysql_connect(DB_SERVER, DB_LOGIN, DB_PASS);
-
-mysql_query('USE dn') or die('koniec use');
-
+initDB();
 $result = mysql_query('SELECT id, imie FROM uczniowie WHERE id_opiekuna = ' . $parentId) or die('koniec select');
 
 $markup = '<select id="childrenChoice">';

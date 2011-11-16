@@ -3,6 +3,7 @@
 include '../inc/Template.php';
 include 'ChildrenCombobox.php';
 
+session_start();
 
 $tl = new Template('../tls/parent/index.html');
 
