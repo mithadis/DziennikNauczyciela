@@ -1,4 +1,4 @@
-INSERT INTO uczniowie (id,nazwisko,imie,data_ur,dod_info,id_klasy,id_opiekuna) VALUES ('1','Small','Robin','12-31-11','in','16','55');
+INSERT INTO uczniowie (id,nazwisko,imie,data_ur,dod_info,id_klasy,id_opiekuna) VALUES ('1','Medium','Robin','12-31-11','in','16','55');
 INSERT INTO uczniowie (id,nazwisko,imie,data_ur,dod_info,id_klasy,id_opiekuna) VALUES ('2','Marquez','Genevieve','08-19-12','at,','14','1');
 INSERT INTO uczniowie (id,nazwisko,imie,data_ur,dod_info,id_klasy,id_opiekuna) VALUES ('3','Phillips','Alfonso','10-28-12','erat neque non quam.','3','20');
 INSERT INTO uczniowie (id,nazwisko,imie,data_ur,dod_info,id_klasy,id_opiekuna) VALUES ('4','Lowery','Yasir','05-07-11','a felis ullamcorper viverra. Maecenas iaculis aliquet diam.','17','23');
