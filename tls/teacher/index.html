@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="http://localhost:8080/DziennikNauczyciela/css/style.css">
 <script type="text/javascript" src="http://localhost:8080/DziennikNauczyciela/scripts/jquery-1.7.js"></script>
-<title>Witaj Rodzicu</title>
+<title>Witaj Nauczycielu</title>
 
 
 <script type="text/javascript">
@@ -21,6 +21,24 @@ $(document).ready(function(){
 	});
 
 });
+
+function addNewGrade(button){
+	
+	var childIdValue = $(button).attr('name');
+	var newGradeValue = $('input[name=' + childIdValue + ']').attr('value');
+
+	$.ajax({
+		  url: '/DziennikNauczyciela/teacher/addNewGrade.php',
+		  type: 'POST',
+		  data: {childId : childIdValue, newGrade : newGradeValue},
+		  success: function(data){
+		   	$('#innerRow' + childIdValue + ' input[type="text"]').parent().before('<td>'+newGradeValue+'</td>');
+		  },
+		  fail: function(data){
+			
+		  }
+		});
+}
 
 </script>
 

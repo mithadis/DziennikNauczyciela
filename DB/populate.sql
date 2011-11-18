@@ -1891,3 +1891,8 @@ UPDATE kursy SET id_nauczyciela = 13 WHERE id = 33;
 update obecnosci set id_ucznia = 45 where id = 7;
 update obecnosci set id_ucznia = 45 where id = 8;
 update obecnosci set id_ucznia = 45 where id = 9;
+
+
+INSERT INTO oceny (ocena, waga, timestamp, id_kursu, id_ucznia) VALUES (5, 4, '2012-05-19 07:16:42', 69, 41);
+INSERT INTO oceny (ocena, waga, timestamp, id_kursu, id_ucznia) VALUES (2, 5, '2012-05-19 07:16:42', 69, 41);
+

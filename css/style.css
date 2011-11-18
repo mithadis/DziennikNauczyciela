@@ -116,3 +116,23 @@ thead td{
 	
 }
 
+#innerTable,
+#innerTable thead,
+#innerTable tbody,
+#innerTable tr,
+#innerTable td{
+	
+	outline: none;
+	border: none;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	
+}
+
+input.newGrade{
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	width: 50px;
+}
+

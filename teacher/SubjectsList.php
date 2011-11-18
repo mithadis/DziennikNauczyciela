@@ -15,7 +15,7 @@ function getSubjectsList(){
 	$markup = '';
 	while(($row = mysql_fetch_row($result)) != ''){
 	
-		$markup.= '<li><a href="/DziennikNauczyciela/teacher/registerpage.php?subjectId='.$row[1].'">'.$row[0].'</a></li>';
+		$markup.= '<li><a href="/DziennikNauczyciela/teacher/registerpage.php?courseId='.$row[1].'">'.$row[0].'</a></li>';
 		
 	}
 	
